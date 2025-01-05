@@ -109,6 +109,8 @@ Damit ein System als „künstliches Bewusstsein“ gelten kann, braucht es:
 
 ## 5. Projektumsetzung: Wie soll das aussehen?
 
+**TL;DR: Im currently working on version "kb6" in folder "Try1...".**
+
 Aktuell arbeite ich an folgenden **Kernthemen**, um das System zu programmieren:
 
 1. **Neuronales Netz** mit großer Flexibilität

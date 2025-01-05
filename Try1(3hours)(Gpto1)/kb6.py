@@ -22,7 +22,7 @@ from typing import Dict, List, Optional
 # 1) GRUNDLAGEN: W-FRAGEN, RICHTIGKEIT, SENTIMENT, ...
 ###############################################################################
 
-class InfoCategory(Enum):
+class WFragenCategory(Enum):
     """
     Die 6 W-Fragen nach deinem Buch:
       - WER   : Alles, was Augen hat oder Bewusstsein
@@ -93,7 +93,7 @@ class Information:
     def __init__(
         self,
         content: str,
-        category: InfoCategory,
+        category: WFragenCategory,
         validity: InfoValidity = InfoValidity.GILT_ALS_RICHTIG,
         sentiment: Sentiment = Sentiment.NEUTRAL
     ):
@@ -244,7 +244,7 @@ def derive_new_knowledge(info_a: Information, info_b: Information) -> Optional[I
     if ("apfel" in lower_a) and ("rot" in lower_a) and ("rot" in lower_b) and ("farbe" in lower_b):
         new_info = Information(
             content="Der Apfel hat eine Farbe.",
-            category=InfoCategory.WAS,
+            category=WFragenCategory.WAS,
             validity=InfoValidity.GILT_ALS_RICHTIG,  # erstmal "gilt als richtig"
             sentiment=Sentiment.NEUTRAL
         )
@@ -439,7 +439,7 @@ class KuenstlichesBewusstsein:
     
     def add_information(self,
                         content: str,
-                        category: InfoCategory,
+                        category: WFragenCategory,
                         validity: InfoValidity = InfoValidity.GILT_ALS_RICHTIG,
                         sentiment: Sentiment = Sentiment.NEUTRAL) -> Information:
         """
@@ -499,25 +499,25 @@ def demo_main():
     #    Du könntest hier die Infos aus deinem Buch verwenden
     info_apfel = kb.add_information(
         content="Apfel",
-        category=InfoCategory.WAS,  # "Apfel" = ein Ding => WAS
+        category=WFragenCategory.WAS,  # "Apfel" = ein Ding => WAS
         validity=InfoValidity.IST_PHYSIKALISCH_BESTAETIGT,
         sentiment=Sentiment.NEUTRAL
     )
     info_baum = kb.add_information(
         content="Baum",
-        category=InfoCategory.WAS,  # "Baum" = ein Ding => WAS
+        category=WFragenCategory.WAS,  # "Baum" = ein Ding => WAS
         validity=InfoValidity.GILT_ALS_RICHTIG, 
         sentiment=Sentiment.NEUTRAL
     )
     info_apfel_rot = kb.add_information(
         content="Der Apfel ist rot",
-        category=InfoCategory.WAS,
+        category=WFragenCategory.WAS,
         validity=InfoValidity.GILT_ALS_RICHTIG,
         sentiment=Sentiment.POSITIV  # Positiv => leichte Happiness-Steigerung beim "Denken" darüber
     )
     info_rot = kb.add_information(
         content="Rot ist eine Farbe",
-        category=InfoCategory.WAS,
+        category=WFragenCategory.WAS,
         validity=InfoValidity.GILT_ALS_RICHTIG,
         sentiment=Sentiment.NEUTRAL
     )
@@ -531,13 +531,13 @@ def demo_main():
     # um auch diese Kategorien zu demonstrieren:
     info_mensch = kb.add_information(
         content="Ein Mensch mit Augen",
-        category=InfoCategory.WER,
+        category=WFragenCategory.WER,
         validity=InfoValidity.GILT_ALS_RICHTIG,
         sentiment=Sentiment.NEUTRAL
     )
     info_warum_konsum = kb.add_information(
         content="Warum konsumieren Menschen Social Media?",
-        category=InfoCategory.WARUM,
+        category=WFragenCategory.WARUM,
         validity=InfoValidity.GILT_ALS_RICHTIG,
         sentiment=Sentiment.NEGATIV  # evtl. negatives Sentiment
     )
