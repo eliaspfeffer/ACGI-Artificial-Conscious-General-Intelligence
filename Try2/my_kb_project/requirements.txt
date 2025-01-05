@@ -1,0 +1,2 @@
+# Minimalbeispiel, eigentlich nur Python-Standardbibliothek:
+python>=3.8
