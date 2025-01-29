@@ -1,0 +1,80 @@
+{
+    "words": {
+        "Der": [
+            "K1"
+        ],
+        "Apfel": [
+            "K1",
+            "K4"
+        ],
+        "hat": [
+            "K1",
+            "K2"
+        ],
+        "eine": [
+            "K1"
+        ],
+        "gr\u00fcne": [
+            "K1",
+            "K2",
+            "K3"
+        ],
+        "Ein": [
+            "K2",
+            "K4"
+        ],
+        "Baum": [
+            "K2",
+            "K4"
+        ],
+        "Bl\u00e4tter": [
+            "K2"
+        ],
+        "Chlorophyll": [
+            "K3"
+        ],
+        "verursacht": [
+            "K3"
+        ],
+        "Farbe": [
+            "K3"
+        ],
+        "ist": [
+            "K4"
+        ],
+        "im": [
+            "K4"
+        ]
+    },
+    "relations": {
+        "K1": [
+            "Der",
+            "Apfel",
+            "hat",
+            "eine",
+            "gr\u00fcne"
+        ],
+        "K2": [
+            "Ein",
+            "Baum",
+            "hat",
+            "gr\u00fcne",
+            "Bl\u00e4tter"
+        ],
+        "K3": [
+            "Chlorophyll",
+            "verursacht",
+            "gr\u00fcne",
+            "Farbe",
+            null
+        ],
+        "K4": [
+            "Ein",
+            "Baum",
+            "ist",
+            "im",
+            "Apfel"
+        ]
+    },
+    "scores": {}
+}
