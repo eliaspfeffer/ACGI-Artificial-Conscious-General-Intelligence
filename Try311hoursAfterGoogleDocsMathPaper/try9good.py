@@ -3,6 +3,7 @@ import re
 import json
 import matplotlib.pyplot as plt
 import networkx as nx
+from mpl_toolkits.mplot3d import Axes3D
 
 # Automatische Attributzuordnung
 ATTRIBUTE_KEYS = ["Wer", "Was", "Wie", "Wo", "Wann"]
@@ -21,11 +22,10 @@ ram_memory = {
     "K2": extract_attributes_from_sentence("Ein Baum hat grüne Blätter"),
     "K3": extract_attributes_from_sentence("Chlorophyll verursacht grüne Farbe"),
     "K4": extract_attributes_from_sentence("Ein Baum ist im Apfel"),
-    "K5": extract_attributes_from_sentence("Sonne ermöglicht Photosynthese"),
-    "K6": extract_attributes_from_sentence("Photosynthese erzeugt Chlorophyll"),
-    "K7": extract_attributes_from_sentence("Grün ist eine Farbe"),
-    "K8": extract_attributes_from_sentence("Der Baum ist alt"),
-
+    # "K5": extract_attributes_from_sentence("Sonne ermöglicht Photosynthese"),
+    # "K6": extract_attributes_from_sentence("Photosynthese erzeugt Chlorophyll"),
+    # "K7": extract_attributes_from_sentence("Grün ist eine Farbe"),
+    # "K8": extract_attributes_from_sentence("Der Baum ist alt"),
 }
 
 # Definition des Langzeitspeichers (SSD) als Dictionary mit Wort-Positionen
@@ -85,13 +85,13 @@ def calculate_scores():
 
 calculate_scores()
 
-# Funktion zur Visualisierung des SSD-Wissensgraphen
-def plot_knowledge_graph():
+# Funktion zur Visualisierung des SSD-Wissensgraphen in 3D
+def plot_knowledge_graph_3d():
     G = nx.Graph()
     
     # Knoten für Kontexte hinzufügen
     for context in ram_memory:
-        G.add_node(context, color='yellow')
+        G.add_node(context, color='blue')
         for key, words in ram_memory[context].items():
             for word in words:
                 G.add_node(word, color='green')
@@ -104,16 +104,27 @@ def plot_knowledge_graph():
         G.add_node(km, color='red')
         G.add_edge(kn, km, weight=score)
     
-    # Zeichnen des Graphen
-    plt.figure(figsize=(8, 6))
-    pos = nx.spring_layout(G)
-    edges = G.edges(data=True)
-    edge_weights = [d['weight'] / 10 for (_, _, d) in edges]  # Skaliere Gewicht für bessere Darstellung
+    # 3D Plot
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
     
-    colors = ['red' if n in truth_values else 'yellow' if n in ram_memory else 'green' for n in G.nodes]
-    nx.draw(G, pos, with_labels=True, node_color=colors, edge_color='gray', font_size=10, node_size=1000, width=edge_weights)
-    plt.title("Wissensgraph der AGI mit Verbindungsstärken")
+    pos = nx.spring_layout(G, dim=3)
+    
+    for node, (x, y, z) in pos.items():
+        ax.scatter(x, y, z, color='red' if node in truth_values else 'blue' if node in ram_memory else 'green')
+        ax.text(x, y, z, node, fontsize=10, ha='center')
+    
+    for edge in G.edges(data=True):
+        x_vals = [pos[edge[0]][0], pos[edge[1]][0]]
+        y_vals = [pos[edge[0]][1], pos[edge[1]][1]]
+        z_vals = [pos[edge[0]][2], pos[edge[1]][2]]
+        ax.plot(x_vals, y_vals, z_vals, color='gray', alpha=0.7, linewidth=edge[2]['weight'] / 10)
+    
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title("Wissensgraph der AGI in 3D")
     plt.show()
 
 # Plot ausführen
-plot_knowledge_graph()
+plot_knowledge_graph_3d()

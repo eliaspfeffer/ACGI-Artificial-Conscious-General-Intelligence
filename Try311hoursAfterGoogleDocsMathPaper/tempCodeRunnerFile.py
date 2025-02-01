@@ -1,0 +1,5 @@
+    # "K4": extract_attributes_from_sentence("Ein Baum ist im Apfel"),
+    # "K5": extract_attributes_from_sentence("Sonne ermöglicht Photosynthese"),
+    # "K6": extract_attributes_from_sentence("Photosynthese erzeugt Chlorophyll"),
+    # "K7": extract_attributes_from_sentence("Grün ist eine Farbe"),
+    # "K8": extract_attributes_from_sentence("Der Baum ist alt"),

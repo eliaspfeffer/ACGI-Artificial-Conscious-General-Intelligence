@@ -1,0 +1,233 @@
+“Reasoning model for AGI”
+Mathematische Logik zur Verknüpfung von Kontexten in einem Wissensgraphen
+Ziel ist es, eine mathematische Methode zu entwickeln, die entscheidet, wie ein Kontext oder ein Pfad in das Warum-Attribut eines anderen Kontextes eingefügt wird. Motivation hiervon ist, diese Methodik in ein Programm einzubauen, welches Bewusstsein nachahmt, um AGI (Artificial General Intelligence) in Form von “künstlichem Bewusstsein”, anstatt reiner Statistik zu erreichen. 
+Definitionen:
+Attribute:
+“Wer, Was, Wie, Wo, Wann”; “Warum”
+Dient zur Priorisierung im nächsten Paper
+
+
+Information:
+ein einzelnes Wort (“Apfel”)
+Hat die Attribute “Wer, Was, Wie, Wo, Wann”.
+Kann undefiniert sein (z.B. “Der” oder “ist”).  
+
+Kontext: 
+besteht aus aneinander gehängten Informationen (“der, Apfel, ist, grün”). 
+hat nur das Attribut “Warum” (“der Apfel ist grün” -> Warum?).
+
+
+
+
+Pfad:
+besteht aus aneinander gehängten Kontexten.
+
+
+Die hier erläuterte mathematische Methode basiert auf Kombination von diesen Faktoren:
+Kontexte (Kn): z.B. “der Apfel ist grün”
+Bewertung B der Wahrhaftigkeit einzelner Kontexte B(Kn) (ob mit eigenen Sinnen /
+Sensoren wahrgenommen oder nur gelesen etc), 
+Relationen (Rnm): “der Apfel ist grün” & “Chlorophyll verursacht grüne Farbe” kommen nacheinander (im Input und oder im Speicher).
+Häufigkeit H von Relationen H(Rnm): Wie oft zwei Kontexte gemeinsam in der Vergangenheit aufgetreten sind (z.B. “der Apfel ist grün” & “Chlorophyll verursacht grüne Farbe” kamen 10 mal in Kombination voneinander vor), 
+Länge L der Kontext-Kombinationen L(P): die Anzahl an verwendeten Relationen / hintereinander verbundenen Kontexte, 
+Konsistenz Kons zwischen Kontexten Kons(Kn,Km) / Relationen Kons(Rnm) (gehören die einzelnen Informationen von den jeweils verbundenen Kontexten zu den gleichen Attributen?
+Bewertung B der Wahrhaftigkeit ganzer Pfade B(Pn)
+(Strafe für Widersprüche.)
+Zur Evaluierung wird für jeden in Betracht gezogenen Pfade P ein Score S ermittelt. Der 
+Der Pfad P (kann auch nur ein einzelner Kontext sein) mit dem höchsten Score S(P) wird als Antwort für das Attribut “Warum” eines einzelnen Kontextes genommen.
+Die Formel zur Ermittlung des höchsten Scores lautet wie folgt:
+S(P) =B(Pn)+Rnm+H(Rnm)+L(P)+Kons(Kn)
+Erklärung:
+ B(K), K ∈ { Kn​, Km​} mit K ≠ Ko​ und Kn​ ≠ Km ≠ Ko
+Zur Gewichtung der einzelnen Faktoren können noch Gewichte hinzugefügt werden:
+
+
+S(P) =*B(Pn)+*Rnm+*H(Rnm)+*L(P)+*Kons(Kn)
+
+Beispiel:
+Pfad 1 mit Kombination aus 
+S(P1) =*B(P1)+*R13+*H(R13)+*L(P1)+*Kons(K1,K3)
+Schritt 1 alle Gegebenheiten identifizieren:
+Gegebener Kontext: “Der Apfel ist grün”
+Gesucht: Kontext, welcher für das Attribut “Warum” vom Kontext “Der Apfel ist grün” eingefügt werden kann.
+
+
+Auflistung von Gegebenheiten:
+Auflistung von gegebenen Kontexte (Kn):
+K1: "Der Apfel ist grün"
+K2: "Ein Baum hat grüne Blätter"
+K3: "Chlorophyll verursacht grüne Farbe"
+K4: "Ein Baum ist im Apfel"
+
+Bisheriger Bewertungen der Wahrhaftigkeit einzelner Kontexte B(Kn)
+Um möglichst wenige Fehler und zurückhaltendes Verhalten einzuprogrammieren, werden folgende Methoden verwendet:
+
+B(K)= 
+Kontext
+Mit eigenen Sinnen / Sensoren erfasst: 1.0
+Gelesen: 0.5
+B(K)= 
+B(K1):
+ja
+ja
+1.5
+B(K2):
+ja
+ja
+1.5
+B(K3):
+nein
+ja
+0.5
+B(K4):
+nein
+ja
+0.5
+
+
+
+
+
+Auflistung an möglichen Relationen Rnm:
+R12: "Der Apfel ist grün" & "Ein Baum hat grüne Blätter"
+R13: "Der Apfel ist grün" & "Chlorophyll verursacht grüne Farbe"
+R24:  "Ein Baum hat grüne Blätter & "Ein Baum ist im Apfel"
+R14, R32, R34, etc... wurden der Einfachheit wegen weggelassen
+
+
+Bisherige Häufigkeit von Relationen H(Rnm):
+Die folgenden Relationen kamen so häufig vor: 
+H(R12): 10 mal
+H(R13): 10 mal 
+H(R24): 1 mal
+H(R14), H(R32), H(R34), etc... wurden der Einfachheit wegen weggelassen
+
+Ungewiss ist, ob die Häufigkeit von Relationen inkrementiert werden soll, sobald eine Relation jemals Input war, oder ob diese nur inkrementiert werden soll, wenn eine Relation auch tatsächlich im Speicher abgespeichert wurde und was die mathematische Logik ist, welche entscheidet ob ein Kontext / eine Relation / ein Pfad gespeichert werden soll oder nicht.
+Länge von möglichen Pfaden L(P):
+P1= R13                          =1
+P2= R13+ R32            =2
+P3= R13+ R32+R24=3
+P4, P5, P6, etc... wurden der Einfachheit wegen weggelassen
+
+Konsistenz zwischen Kontexten /Relationen Kons(Kn) mit Jaccard-Index
+Der Jaccard-Index berechnet den Anteil der gemeinsamen Attribute zwischen zwei Kontexten:
+
+Kons(K ∈ { Kn​, Km​) =A(Kn)  A(Km)A(Kn)  A(Km)  
+A(Kn)  A(Km):             Anzahl der gemeinsamen Attribute
+A(Kn)  A(Km): Gesamtzahl der Attribute (ohne Duplikate)
+
+Beispiel 1: Konsistente Kontexte
+K1: "Der Apfel ist grün"
+A(K1)=|{"=Der", "Was= Apfel", "=ist", "Wie=grün"}|
+
+K3: "Chlorophyll verursacht grüne Farbe"
+A(K3)=|{"Was=Chlorophyll",  "Was=verursacht", "Wie=grün(e)", "Was=Farbe"}|
+
+A(K1)  A(K3)={"Wie=grün(e)"} = 1
+
+A(K1)  A(K3)={"Was=Apfel; Chlorophyll; verursacht; Farbe", "Wie=grün(e)"} =5 
+Kons(K ∈ { K1​, K3 }​)=15=0,25
+
+
+Beispiel 2: Widersprüchliche Kontexte
+K2: "Ein Baum hat grüne Blätter"
+A(K2)=|{"=Ein", "Was= Baum", "=hat", "Wie=grün", "Was=Blätter"}|
+
+K4: "Ein Baum ist im Apfel"
+A(K4)=|{"=Ein", "Was=Baum",  "=ist", "Wo=im", "Was=Apfel"}|
+
+A(K2)  A(K4)={"Was=Baum"} = 1
+
+A(K2)  A(K4)={"Was=Baum; Blätter; Apfel", "Wie=grün", "Wo=im"} =5 
+Kons(K ∈ { K2​, K4 }​)=15=0,25
+
+Beispiel 3: Keine Konsistenz
+K2: "Eine Banane schmeckt gut"
+A(K2)=|{"=Eine", "Was= Bana", "Was=schmeckt", "Wie=gut"}|
+
+K4: "Ein Baum ist im Apfel"
+A(K4)=|{"=Ein", "Was=Baum",  "=ist", "Wo=im", "Was=Apfel"}|
+
+A(K2)  A(K4)={} = 0
+
+A(K2)  A(K4)={"Was=Banane; Baum; Apfel; schmeckt", "Wie=lecker", "Wo=im"} =5 
+Kons(K ∈ { K2​, K4 }​)=05=0
+
+
+Bewertungen der Wahrhaftigkeit ganzer Pfaden B(P)
+Um die Wahrhaftigkeit von einem Pfad, welcher aus einem oder mehreren Kontexten bestehen kann, zu bewerten, werden folgende mathematische Methoden kombiniert. Diese Kombination zielt darauf ab, möglichst wenige Fehler zu machen und bei Unsicherheit zurückhaltend zu sein. Insbesondere bei Unsicherheiten und unvollständigem oder widersprüchlichem Wissen.
+Konservative Methode: Minimum der Wahrhaftigkeit
+Die AGI sollte die Wahrhaftigkeit eines Pfades so niedrig wie den schwächsten Kontext im Pfad bewerten. Das bedeutet, dass die AGI keinen Pfad als plausibel betrachtet, wenn auch nur ein Kontext darin unzuverlässig ist.
+
+Bmin(Pn)=min{ B(K1) * B(K3), ... , B(K) }
+
+	Warum diese Methode?
+Risikominimierung
+Zurückhaltung, wenn nicht alle Kontexte im Pfad zuverlässig sind.
+
+Widerspruchsprüfung
+Neben der Wahrhaftigkeit sollte die AGI sicherstellen, dass keine Widersprüche entlang des Pfads existieren. Wenn ein Widerspruch gefunden wird, sollte der gesamte Pfad verworfen werden. Widersprüche führen somit zum zum Ausschluss
+
+Bwiderspruch(Pn)=Bmin(Pn)−λ⋅Widerspruch(P)
+
+mit
+Bmin(Pn)=min{ B(K1) * B(K3), ... , B(K) }
+
+und
+
+λ als Gewichtungsfaktor für Widersprüche(z.B. hoch setzen, λ=5).
+
+und
+Widerspruch(Pn)=1-Kons(Pn)
+
+	Warum diese Methode?
+Sie verhindert, dass Pfade mit internen logischen Konflikten überhaupt in Betracht gezogen werden.
+Menschen verwerfen ebenfalls Hypothesen, wenn Widersprüche erkannt werden.
+
+Multiplikative Methode für strenge Kombinationen
+Wenn die AGI aus sehr zuverlässigen Kontexten komplexe Verknüpfungen herstellen soll, könnte die multiplikative Methode sinnvoll sein. Diese Methode sorgt dafür, dass die gesamte Wahrhaftigkeit schnell sinkt, wenn auch nur ein Kontext unsicher ist.
+Bmultiplikativ (P)=i=1nBmin(K, ∈ { Kn​, Km​})
+	Warum diese Methode?
+Sie ist empfindlicher als der Minimum-Ansatz und ahmt die Art nach, wie Menschen komplexe Argumente aufbauen: Wenn viele Schritte in einer Argumentationskette unklar sind, wird die gesamte Argumentation weniger glaubwürdig.
+
+Kombination:
+	
+B(Pn)=Bmin(Pn)*Bwiderspruch(Pn)*Bmultiplikativ (Pn)
+
+Für eine erhöhte Komplexität ließe sich die Bewertung der Wahrhaftigkeit einzelner KontextB(Kn) auch mittels der gewichteten Mittelwert-Methode erweitern, bei welcher folgende Faktoren verwendet werden:
+Mit eigenen Sinnen / Sensoren erfasst / Direkte Erfahrung S(Kn)
+Wiederholung R(Kn)
+Widerspruchsfreiheit W(Kn)
+Emotionale Verbindung E(Kn)
+Neugier N(Kn)
+
+B(Kn)=α*S(Kn)+β*R(Kn)+γ*W(Kn)+δ*E(Kn)+ϵ*N(Kn)++++
+
+Der gewichtete Mittelwert passt hierbei am besten, da idealerweise jeder Faktor (z.B. “Direkte Erfahrung" oder “Wiederholung”), ähnlich wie bei einem kleinen Kind im Verlauf eines Lebens, in Form von Kontexten, individuell gewichtet werden.
+
+Intuition der Gewichtung: Faktoren, die stärker erfüllt sind (z. B. hohe Wiederholung), beeinflussen die Gesamtbewertung des Kontexts stärker.
+
+Fazit:
+Durch die erwähnte mathematische Formel 
+S(P) =B(Pn)+Rnm+H(Rnm)+L(P)+Kons(Kn)
+bzw. der gewichteten Version
+
+
+S(P) =*B(Pn)+*Rnm+*H(Rnm)+*L(P)+*Kons(Kn)
+
+werden Pfade bzw. Kontexte, jeweils bestehend aus einzelnen Informationen mit ihren jeweiligen Attributen, zu dem “Warum” Attribut des ersuchten Kontextes verbunden, wo folgende Gegebenheit vorliegt: 
+Der verwendete Pfad wurde bevorzugt, bei welchem
+Die Kontexte selbst wahrgenommen wurden:
+Höhere Priorität für Kontexte, die direkt durch Sinne/Sensoren erlebt wurden.
+Die stärkste Verbindung vorhanden ist:
+Bevorzugt werden Relationen mit hoher Häufigkeit H(Rnm) und starker Konsistenz Kons(Kn,Km)\text{Kons}(K_n, K_m)Kons(Kn​,Km​).
+Keine Widersprüche im Pfad auftreten:
+Pfade mit Widersprüchen Bwiderspruch(Pn)>0 werden ausgeschlossen.
+Die Wahrhaftigkeit des gesamten Pfads hoch ist:
+Pfade mit glaubwürdigen Kontexten (B(Pn)B(P_n)B(Pn​)) und logischen Verbindungen werden priorisiert.
+Die Pfadlänge zur Tiefe der Erklärung beiträgt:
+Längere Pfade L(P)L(P)L(P) können bevorzugt werden, wenn sie konsistent bleiben, um detaillierte Verknüpfungen zu fördern.
+Schritt 2: Gewichtung der Pfade berechnen
+
+
+

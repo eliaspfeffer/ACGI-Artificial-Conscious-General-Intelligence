@@ -1,0 +1,23 @@
+
+
+Ich möchte eine Sache kurz klarstellen: Der Gedankenendlos Impuls. Der funktioniert so: Der Gedankenendlos Impuls "fokussiert" sich immer auf eine Information und springt danach zu einer anderen "Information". 
+Informationen sind mittels den "Attributen" "Wer, Was, Wie, Wo, Wann" verbunden. Jedes Mal, wenn der Gedankenendlos Impuls zu einer nächsten Information "springt", muss er über den Widerstand einer Verbindung "springen".
+Diese Verbindung ist wie ein elektrischer Widerstand. Manche Widerstände sind größer, mance kleiner. Je größer der Widerstand zwischen zwei "Informationen", desto mehr Energie wird benötigt.
+Es gibt meistens mehrere "Verbindungen" zwischen "Informationen", die der Gedankenendlos Impuls gehen kann:
+-Random
+-Least Resistance
+-Bedürfnis Pyramide.
+
+Bei der Bedürfnis Pyramide und beim Fall der Least Resistance gibt es eine Gemeinsamkeit: Beide verfolgen Pfade, welche widerrum mit dem Ursprungs-warum verbunden sind. Das Ursprungs-warum ist widerrum ein Honey Pot, der die AGI "glücklich" macht.
+Je näher die "Distanz" zwischen dem dem Ursprungs-warum / Honey Pot und der aktuell "fokussierten" Information, desto mehr Glücklichkeit wird ausgestoßen.
+und es wird bei mehreren möglichen Pfaden immer der Pfad betrachtet, welcher von allen Möglichkeiten am wenigsten Energie benötigt.
+
+Die Kontexte, welche ich dir zuvor erklärt habe, sind hierbei von entscheidender Rolle.
+
+
+
+Schreib mir eine Method, welche den Gedankenendlos Impuls darstellt. Auf eine Information soll immer "fokussiert" werden. Dann soll geschaut werden, welcher Fokus damit verbunden ist. Abhängig von folgender Logik soll dann weiter gearbeitet werden:
+Wenn Speicher voll: Schlafe
+Wenn Speicher nicht voll: Schau wie viel Energie vorhanden ist. Abhängig davon sollen , welche die KI glücklich macht. 
+
+Okay ganz am Boden sollte der Kontext "Glück" stehen. Jedes mal, wenn der runner am Kontext "Glück" vorbeikommt oder einen Pfad entlang geht, bei welchem der Kontext "Glück" erwähnt wird, soll eine Variable "Glücklichkeit" größer werden.
