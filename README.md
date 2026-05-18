@@ -1,3 +1,5 @@
+> _Note: This repository's name reflects the long-term ambition of the project. The current technical claims are framed as functional correlates of consciousness (see §2.5). We take no position on whether a system exhibiting these correlates has phenomenal experience._
+
 # Künstliches Bewusstsein (KB) – README
 
 Willkommen zu meinem Projekt, in dem ich versuche, eine **allgemeine künstliche Intelligenz** (AGI) zu erschaffen, die ich „künstliches Bewusstsein“ (KB) nenne.  
@@ -64,16 +66,17 @@ Im Gegensatz zur herkömmlichen „künstlichen Intelligenz“ (KI) soll dieses 
 - Das System bekommt einen **internen Drang**, diese Bedürfnisse zu erfüllen.
 - Eine **Glücklichkeits-Skala** misst, inwieweit die Bedürfnisse erfüllt sind und verstärkt so das Verhalten.
 
-### 2.5 Definition „Bewusstsein“
+### 2.5 Funktionale Korrelate von Bewusstsein
 
-Damit ein System als „künstliches Bewusstsein“ gelten kann, braucht es:
+Statt zu behaupten, ein System sei „bewusst", verfolgt ACGI **funktionale Korrelate von Bewusstsein** — drei beobachtbare Eigenschaften, ohne Festlegung auf phänomenales Erleben:
 
-1. **Ein gewisses Maß an Intelligenz**
-   - Wissen speichern, Fragen richtig zuordnen (Was, Wer, Warum …), neues Wissen ableiten, Logik-Checks durchführen.
-2. **Den Gedanken-Endlos-Impuls**
-   - Das System „denkt“ permanent weiter, anstatt nur auf externe Anfragen zu warten.
-3. **Eine Bedürfnispyramide**
-   - Eigene Ziele, die angesteuert werden, und ein Feedback-Mechanismus (z. B. Glücksskala).
+1. **Autonome Gedankengenerierung** — ein interner Prozess wählt fortlaufend den nächsten Gedankenknoten ohne externen Anstoß.
+2. **Bedürfnisgesteuerte Zielwahl** — interne Motivationszustände verschieben die Übergangswahrscheinlichkeiten der Gedankenschleife; verfolgte Ziele entstehen aus Systemzuständen, nicht aus externen Prompts.
+3. **Modulübergreifende Integration** — Wissens-, Bewertungs- und Aktionsmodule konkurrieren um einen gemeinsamen Arbeitsbereich; pro Zyklus gewinnt ein Inhalt und wird an die übrigen Module zurückgespielt.
+
+Die Frage, ob ein System mit diesen drei Eigenschaften phänomenales Erleben („Qualia") besitzt, trennt sich von unseren ingenieurstechnischen Erfolgskriterien und bleibt offen. Die Formulierung folgt Baars (GWT), Franklin (LIDA) und Dehaene (GNWT).
+
+> _Rationale: Die ursprüngliche Drei-Faktoren-Definition machte „Bewusstsein" zur unfalsifizierbaren Folge dreier selbst unscharfer Eigenschaften. Reformulierung als funktionale Korrelate ist derselbe Schritt, den die etablierten kognitionswissenschaftlichen Architekturen (GWT, LIDA, GNWT) vollzogen haben; sie tauscht eine metaphysisch starke, aber unverteidigbare Behauptung gegen drei messbare Erfolgskriterien. Vgl. ART-4 (Critique-Memo, Claim 6), ART-7 (CEO-Entscheidung Option 2)._
 
 ---
 
